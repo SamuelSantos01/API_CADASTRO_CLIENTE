@@ -1,7 +1,7 @@
 package com.cadastro.cliente.Controller;
 
 import java.util.List;
-import java.util.stream.Collectors; // Importe a classe Collectors
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -43,12 +43,12 @@ public class ControllerClient {
         @PathVariable String nomeUsuario,
         @RequestBody ClienteRequestDTO dadosAtualizados) {
 
-    // Verificar se o cliente existe pelo nome de usuário
+   
     if (clienteRepository.existsById(nomeUsuario)) {
-        // Obter o cliente existente pelo nome de usuário
+        
         Cliente clienteExistente = clienteRepository.findById(nomeUsuario).orElse(null);
 
-        // Se o cliente existir, atualizar os dados com base nos dados fornecidos
+        
         if (clienteExistente != null) {
            clienteExistente.setNomeUsuario(dadosAtualizados.nomeUsuario());
            clienteExistente.setName(dadosAtualizados.name());
